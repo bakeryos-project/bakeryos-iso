@@ -43,6 +43,14 @@ gnome_extensions: list[dict[str, str]] = [
     {
         "id": "gtk4-ding@smedius.gitlab.com",
         "version": "139"
+    },
+    {
+        "id": "clipboard-history@alexsaveau.dev",
+        "version": "48"
+    },
+    {
+        "id": "Vitals@CoreCoding.com",
+        "version": "80"
     }
 ]
 
