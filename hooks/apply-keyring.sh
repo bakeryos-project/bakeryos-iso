@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 pacman-key --init
-pacman-key --add /usr/share/pacman/keyrings/bakeryos.pub
-pacman-key --lsign-key 362B980CCD2FABD9F6D6C4024D0BC484413F9E38
+pacman-key --add /usr/share/pacman/keyrings/bakeryos.gpg
+pacman-key --lsign-key CA84BBC8E84F588C2C7F01FEE3A76FC537D6E842
