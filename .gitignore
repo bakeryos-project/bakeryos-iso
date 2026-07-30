@@ -27,3 +27,5 @@ build_time
 __pycache__
 
 /gnome-shell/extensions/
+build
+testing

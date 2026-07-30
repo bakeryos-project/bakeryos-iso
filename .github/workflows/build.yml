@@ -25,7 +25,9 @@ jobs:
 
       - name: Install Python and essential tools
         run: |
-          pacman -S --noconfirm python python-pip git base-devel squashfs-tools dosfstools mtools arch-install-scripts xorriso
+          pacman -S --noconfirm git go base-devel squashfs-tools dosfstools mtools arch-install-scripts xorriso
+          go install github.com/bakeryos-project/bakeryos-iso-builder@latest
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 
       - name: Verify Environment
         run: |
@@ -35,8 +37,8 @@ jobs:
 
       - name: Prepare
         run: |
-          python ./scripts/python/main.py prepare
+          bakeryos-iso-builder prepare
 
-      - name: Prepare
+      - name: Build
         run: |
-          python ./scripts/python/main.py build
+          bakeryos-iso-builder build
