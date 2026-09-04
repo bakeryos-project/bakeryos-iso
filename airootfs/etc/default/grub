@@ -57,10 +57,6 @@ GRUB_DISABLE_RECOVERY=true
 #GRUB_COLOR_NORMAL="light-blue/black"
 #GRUB_COLOR_HIGHLIGHT="light-cyan/blue"
 
-# Uncomment one of them for the gfx desired, a image background or a gfxtheme
-
-#GRUB_BACKGROUND="/path/to/wallpaper"
-#GRUB_THEME="/path/to/gfxtheme"
 
 # Uncomment to get a beep at GRUB start
 

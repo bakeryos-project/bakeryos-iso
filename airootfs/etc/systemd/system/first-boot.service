@@ -1,0 +1,11 @@
+[Unit]
+Description=Run only once on the first system boot
+After=multi-user.target graphical.session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/first-boot-script.sh
+ExecStopPost=/bin/systemctl disable first-boot.service
+
+[Install]
+WantedBy=multi-user.target
