@@ -80,4 +80,4 @@ GRUB_DISABLE_RECOVERY=true
 
 # operating systems.
 
-#GRUB_DISABLE_OS_PROBER=false
+GRUB_DISABLE_OS_PROBER=false

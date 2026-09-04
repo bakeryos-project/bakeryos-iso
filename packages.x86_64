@@ -167,6 +167,7 @@ parted
 dosfstools
 efibootmgr
 grub
+os-prober
 
 konsole
 kcrash
@@ -214,5 +215,4 @@ bakeryos-calamares-config
 bakeryos-preset
 bakeryos-gnome-extension
 bakeryos-desktop-setup
-bakeryos-dev-wizard
-bakeryos-update
+
