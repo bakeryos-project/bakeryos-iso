@@ -168,6 +168,7 @@ dosfstools
 efibootmgr
 grub
 os-prober
+xdg-user-dirs
 
 konsole
 kcrash
