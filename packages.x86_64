@@ -141,6 +141,7 @@ gnome-calendar
 gnome-text-editor
 gnome-characters
 gdm
+gnome-software
 
 loupe
 decibels
@@ -154,6 +155,7 @@ v4l2loopback-dkms
 networkmanager
 network-manager-applet
 
+flatpak
 
 xdg-desktop-portal
 xdg-desktop-portal-gnome
