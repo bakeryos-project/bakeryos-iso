@@ -205,9 +205,14 @@ nftables
 plymouth
 chromium
 fastfetch
+nodejs
+npm
+flatpak
 
 bakeryos-calamares
 bakeryos-calamares-config
 bakeryos-preset
 bakeryos-gnome-extension
 bakeryos-desktop-setup
+bakeryos-dev-wizard
+bakeryos-update
