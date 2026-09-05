@@ -202,6 +202,9 @@ inter-font
 ttf-roboto
 ttf-liberation
 ttf-dejavu
+noto-fonts-emoji
+ttf-jetbrains-mono-nerd
+ttf-meslo-nerd
 
 nftables
 plymouth
@@ -210,10 +213,10 @@ fastfetch
 nodejs
 npm
 flatpak
+curl
 
 bakeryos-calamares
 bakeryos-calamares-config
 bakeryos-preset
 bakeryos-gnome-extension
 bakeryos-desktop-setup
-
