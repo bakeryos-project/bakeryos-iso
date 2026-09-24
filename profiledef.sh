@@ -32,7 +32,6 @@ file_permissions=(
   ["/etc/issue"]="0:0:644"
   ["/etc/os-release"]="0:0:644"
   ["/etc/nftables.conf"]="0:0:644"
-  ["/usr/share/gnome-background-properties/bakeryos.xml"]="0:0:644"
 
   ["/usr/share/fastfetch/logo.txt"]="0:0:644"
   ["/etc/sudoers.d/bakeryos"]="0:0:440"
