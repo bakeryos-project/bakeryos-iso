@@ -155,13 +155,10 @@ v4l2loopback-dkms
 networkmanager
 network-manager-applet
 
-flatpak
-
 xdg-desktop-portal
 xdg-desktop-portal-gnome
 pipewire
 wireplumber
-
 squashfs-tools
 parted
 dosfstools
@@ -169,27 +166,6 @@ efibootmgr
 grub
 os-prober
 xdg-user-dirs
-
-konsole
-kcrash
-kcoreaddons
-kservice
-ki18n
-kwidgetsaddons
-kpmcore
-kconfig
-kconfigwidgets
-kdbusaddons
-kwindowsystem
-kauth
-kitemviews
-kguiaddons
-kcodecs
-karchive
-kjobwidgets
-knotifications
-kpackage
-
 gptfdisk
 mtools
 polkit
@@ -205,6 +181,9 @@ ttf-dejavu
 noto-fonts-emoji
 ttf-jetbrains-mono-nerd
 ttf-meslo-nerd
+fontconfig
+gvfs
+gvfs-mtp
 
 nftables
 plymouth
@@ -214,6 +193,7 @@ nodejs
 npm
 flatpak
 curl
+zip
 
 bakeryos-calamares
 bakeryos-calamares-config
