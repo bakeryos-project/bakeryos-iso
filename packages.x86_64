@@ -197,10 +197,11 @@ zip
 
 bakeryos-calamares
 bakeryos-calamares-config
-bakeryos-preset
 bakeryos-gnome-extension
 bakeryos-desktop-setup
 bakeryos-wallpapers
 bakeryos-plymouth-theme
 bakeryos-logo
 bakeryos-fonts-setup
+bakeryos-dev-wizard
+bakeryos-update

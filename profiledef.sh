@@ -27,7 +27,6 @@ file_permissions=(
   ["/usr/local/bin/livecd-sound"]="0:0:755"
   ["/usr/local/bin/compile-schemas.sh"]="0:0:755"
   ["/usr/bin/bakeryos-installer"]="0:0:755"
-  ["/usr/local/bin/first-boot-script"]="0:0:755"
 
   ["/etc/issue"]="0:0:644"
   ["/etc/os-release"]="0:0:644"
