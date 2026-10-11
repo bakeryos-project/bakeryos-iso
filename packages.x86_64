@@ -194,6 +194,7 @@ npm
 flatpak
 curl
 zip
+git
 
 bakeryos-calamares
 bakeryos-calamares-config
@@ -203,5 +204,6 @@ bakeryos-wallpapers
 bakeryos-plymouth-theme
 bakeryos-logo
 bakeryos-fonts-setup
-bakeryos-dev-wizard
+bakeryos-dev-toolbox
 bakeryos-update
+bakeryos-cli
