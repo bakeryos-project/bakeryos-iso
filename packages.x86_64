@@ -207,3 +207,5 @@ bakeryos-fonts-setup
 bakeryos-dev-toolbox
 bakeryos-update
 bakeryos-cli
+bakeryos-libalpm-hooks
+bakeryos-keyring
