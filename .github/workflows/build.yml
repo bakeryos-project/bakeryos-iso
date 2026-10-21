@@ -2,10 +2,11 @@ name: BakeryOS Linux CI
 
 on:
   push:
-    branches: ["main", "master"]
+    branches: ["main"]
   pull_request:
-    branches: ["main", "master"]
-
+    branches: ["main"]
+  schedule:
+    - cron: "0 0 */2 * *"
 jobs:
   build-on-arch:
     runs-on: ubuntu-latest
