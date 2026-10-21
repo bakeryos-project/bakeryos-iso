@@ -22,7 +22,7 @@ jobs:
         run: |
           pacman-key --init
           pacman-key --populate archlinux
-          pacman -Syu --noconfirm
+          pacman -Syyu --noconfirm
 
       - name: Install Python and essential tools
         run: |
