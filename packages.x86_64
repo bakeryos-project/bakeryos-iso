@@ -152,6 +152,7 @@ extension-manager
 evolution-data-server
 v4l2loopback-dkms
 
+iwd
 networkmanager
 network-manager-applet
 
