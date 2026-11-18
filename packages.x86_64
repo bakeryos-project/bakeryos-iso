@@ -194,8 +194,10 @@ flatpak
 curl
 zip
 git
+fwupd
 power-profiles-daemon
 switcheroo-control
+pacman-contrib
 cups
 cups-pdf
 system-config-printer
