@@ -194,6 +194,8 @@ flatpak
 curl
 zip
 git
+power-profiles-daemon
+switcheroo-control
 cups
 cups-pdf
 system-config-printer
