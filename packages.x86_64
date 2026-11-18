@@ -194,6 +194,12 @@ flatpak
 curl
 zip
 git
+cups
+cups-pdf
+system-config-printer
+sane
+simple-scan
+sane-airscan
 
 bakeryos-calamares
 bakeryos-calamares-config
