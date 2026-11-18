@@ -203,8 +203,8 @@ system-config-printer
 sane
 simple-scan
 sane-airscan
+calamares
 
-bakeryos-calamares
 bakeryos-calamares-config
 bakeryos-gnome-extension
 bakeryos-desktop-setup
