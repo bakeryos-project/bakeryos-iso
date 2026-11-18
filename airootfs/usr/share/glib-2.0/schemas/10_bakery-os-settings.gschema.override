@@ -1,7 +1,0 @@
-[org.gnome.desktop.background]
-picture-uri='file:///usr/share/backgrounds/bakeryos-wallpapers/wallpaper_004.jpg'
-picture-uri-dark='file:///usr/share/backgrounds/bakeryos-wallpapers/wallpaper_004.jpg'
-picture-options='zoom'
-
-[org.gnome.desktop.interface]
-icon-theme='Papirus'
