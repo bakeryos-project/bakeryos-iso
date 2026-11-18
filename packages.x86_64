@@ -187,7 +187,6 @@ gvfs
 gvfs-mtp
 
 nftables
-plymouth
 chromium
 fastfetch
 flatpak
@@ -210,6 +209,7 @@ bakeryos-calamares-config
 bakeryos-gnome-extension
 bakeryos-desktop-setup
 bakeryos-wallpapers
+bakeryos-plymouth
 bakeryos-plymouth-theme
 bakeryos-logo
 bakeryos-fonts-setup
