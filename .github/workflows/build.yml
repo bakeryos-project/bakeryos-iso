@@ -18,6 +18,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Fetch secrets
+        uses: dopplerhq/secrets-fetch-action@v2.0.0
+        with:
+          doppler-token: ${{ secrets.DOPPLER_TOKEN }}
+          inject-env-vars: true
+
       - name: Initialize Pacman keyring and update system
         run: |
           pacman-key --init
@@ -39,7 +45,7 @@ jobs:
 
       - name: Install Python and essential tools
         run: |
-          pacman -Sy --noconfirm git base-devel squashfs-tools dosfstools mtools arch-install-scripts xorriso wget
+          pacman -Sy --noconfirm git base-devel squashfs-tools dosfstools mtools arch-install-scripts xorriso wget rclone
 
       - name: Verify Environment
         run: |
@@ -54,3 +60,24 @@ jobs:
       - name: Build
         run: |
           bash ./scripts/build.sh
+
+      - name: Configure Rclone
+        run: |
+          mkdir -p ~/.config/rclone
+
+          cat <<EOF > ~/.config/rclone/rclone.conf
+          [r2]
+          type = s3
+          provider = Cloudflare
+          access_key_id = $R2_ACCESS_KEY
+          secret_access_key = $R2_SECRET_KEY
+          endpoint = $R2_ENDPOINT
+          no_check_bucket=true
+          EOF
+
+      - name: Upload ISO to R2
+        run: |
+          iso=$(ls build/out/*.iso | head -n1)
+          rclone copyto "$iso" "r2:$R2_BUCKET/bakeryos.iso" \
+            --progress \
+            --s3-no-check-bucket
