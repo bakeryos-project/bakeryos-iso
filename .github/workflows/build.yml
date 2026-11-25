@@ -24,8 +24,8 @@ jobs:
           pacman-key --populate archlinux
           pacman -Syyu --noconfirm
      
-     - name: Enable BakeryOS repository
-       run: |
+      - name: Enable BakeryOS repository
+        run: |
           # Inter-package dependencies (e.g. bakeryos-plymouth) live in the
           # BakeryOS repository, which is not part of the archlinux image.
           curl -fsSL \
