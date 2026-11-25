@@ -23,6 +23,19 @@ jobs:
           pacman-key --init
           pacman-key --populate archlinux
           pacman -Syyu --noconfirm
+     
+     - name: Enable BakeryOS repository
+        run: |
+          # Inter-package dependencies (e.g. bakeryos-plymouth) live in the
+          # BakeryOS repository, which is not part of the archlinux image.
+          curl -fsSL \
+            https://raw.githubusercontent.com/bakeryos-project/bakeryos-keyring/main/src/bakeryos.gpg \
+            -o /tmp/bakeryos.gpg
+          pacman-key --init
+          pacman-key --add /tmp/bakeryos.gpg
+          pacman-key --lsign-key 5F69BC74227AA79C063AC3E34E140482891B3420
+
+          printf '\n[bakeryos]\nSigLevel = Required DatabaseOptional\nServer = https://repo.bakeryos.smtdfc.net/$arch\n' >> /etc/pacman.conf
 
       - name: Install Python and essential tools
         run: |
