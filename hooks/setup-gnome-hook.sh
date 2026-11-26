@@ -10,6 +10,8 @@ for dir in /usr/share/gnome-shell/extensions/*; do
     fi
 done
 
-dconf compile /etc/dconf/db/local /etc/dconf/db/local.d/
+# Compile every database under /etc/dconf/db (*.d/ -> binary db).
+# This covers both the admin's local.d and BakeryOS's bakeryos.d.
+dconf update
 
 echo "Done"

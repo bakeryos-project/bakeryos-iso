@@ -6,5 +6,4 @@ sudo bash "$CURRENT_DIR/scripts/mkiso.sh" \
       -w "$CURRENT_DIR/build/work" \
       -o "$CURRENT_DIR/build/out" \
       -r \
-      -d \
       "$CURRENT_DIR"

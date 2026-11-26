@@ -4,6 +4,7 @@ Requires=etc-pacman.d-gnupg.mount
 After=etc-pacman.d-gnupg.mount time-sync.target
 BindsTo=etc-pacman.d-gnupg.mount
 Before=archlinux-keyring-wkd-sync.service
+ConditionPathExists=/run/archiso/bootmnt
 
 [Service]
 Type=oneshot

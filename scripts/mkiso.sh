@@ -21,7 +21,6 @@ app_name="BakeryOS ISO Builder"
 pkg_list=()
 bootstrap_pkg_list=()
 quiet=""
-debug=""
 work_dir=""
 out_dir=""
 gpg_key=""
@@ -122,7 +121,6 @@ usage: bakeryos-mkiso [options] <profile_dir>
                       Multiple packages are provided as quoted, space delimited list.
      -r               Delete the working directory at the end.
      -v               Enable verbose output
-     -d               Enable debug mode
      -w <work_dir>    Set the working directory
                       Default: '${work_dir}'
 
@@ -359,29 +357,13 @@ _make_packages() {
         export ARCHISO_TLSCA_FD
     fi
 
-    # Inject testing repo into pacman.conf before pacstrap so testing packages
-    # are installed in the same pass as system packages (only when debug="y")
     local _pacman_conf="${work_dir}/${buildmode}.pacman.conf"
-    if [[ -d "${profile}/testing/pacman/repo" && -n "$(ls -A ${profile}/testing/pacman/repo/*.db 2>/dev/null)" && "${debug}" == "y" ]]; then
-        _msg_info "Debug mode: injecting testing repo into pacman.conf for pacstrap..."
-        local _testing_repo_host
-        _testing_repo_host="$(realpath -- "${profile}/testing/pacman/repo")"
-        # Append the local testing repo to a temporary copy of the pacman.conf
-        _pacman_conf="${work_dir}/${buildmode}.pacman.conf.testing"
-        cp -- "${work_dir}/${buildmode}.pacman.conf" "${_pacman_conf}"
-        printf '\n[bakeryos-testing-local]\nSigLevel = Never\nServer = file://%s\n' "${_testing_repo_host}" >> "${_pacman_conf}"
-    fi
 
     # Unset TMPDIR to work around https://bugs.archlinux.org/task/70580
     if [[ "${quiet}" = "y" ]]; then
         env -u TMPDIR pacstrap -C "${_pacman_conf}" -c -G -M -- "${pacstrap_dir}" "${buildmode_pkg_list[@]}" >/dev/null
     else
         env -u TMPDIR pacstrap -C "${_pacman_conf}" -c -G -M -- "${pacstrap_dir}" "${buildmode_pkg_list[@]}"
-    fi
-
-    # Clean up temporary pacman.conf if it was created for testing
-    if [[ "${_pacman_conf}" == *".testing" ]]; then
-        rm -f -- "${_pacman_conf}"
     fi
 
     if [[ -v cert_list[0] ]]; then
@@ -427,6 +409,14 @@ _make_customize_airootfs() {
         _msg_info "Done!"
     fi
 
+    local testing_pkgs="${profile}/testing/pacman"
+
+    if compgen -G "${testing_pkgs}/*.pkg.tar.zst" >/dev/null; then
+        _msg_info "Staging local testing packages from '${testing_pkgs}'..."
+        install -d -m 0755 -o 0 -g 0 -- "${pacstrap_dir}/tmp/testing-pkg"
+        cp -a -- "${testing_pkgs}/"*.pkg.tar.zst "${pacstrap_dir}/tmp/testing-pkg/"
+    fi
+
     if [[ -d "${profile}/hooks" ]]; then
         _msg_info "Running hooks from '${profile}/hooks/' in '${pacstrap_dir}' chroot..."
         install -d -m 0755 -o 0 -g 0 -- "${pacstrap_dir}/tmp/hooks"
@@ -441,6 +431,8 @@ _make_customize_airootfs() {
         rm -rf -- "${pacstrap_dir}/tmp/hooks"
         _msg_info "Done! Hooks run successfully."
     fi
+
+    rm -rf -- "${pacstrap_dir}/tmp/testing-pkg"
 
     if [[ -e "${pacstrap_dir}/root/customize_airootfs.sh" ]]; then
         _msg_info "Running customize_airootfs.sh in '${pacstrap_dir}' chroot..."
@@ -1876,7 +1868,7 @@ _build() {
     fi
 }
 
-while getopts 'c:p:C:L:P:A:D:w:m:o:g:G:vdrh?' arg; do
+while getopts 'c:p:C:L:P:A:D:w:m:o:g:G:vrh?' arg; do
     case "${arg}" in
         p) read -r -a override_pkg_list <<<"${OPTARG}" ;;
         C) override_pacman_conf="${OPTARG}" ;;
@@ -1891,7 +1883,6 @@ while getopts 'c:p:C:L:P:A:D:w:m:o:g:G:vdrh?' arg; do
         g) override_gpg_key="${OPTARG}" ;;
         G) override_gpg_sender="${OPTARG}" ;;
         v) override_quiet="n" ;;
-        d) debug="y" ;;
         r) declare -i override_rm_work_dir=1 ;;
         h|?) _usage 0 ;;
         *)

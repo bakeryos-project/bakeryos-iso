@@ -202,6 +202,8 @@ system-config-printer
 sane
 simple-scan
 sane-airscan
+zsh-autosuggestions
+zsh-syntax-highlighting
 calamares
 yay
 paru
@@ -219,3 +221,5 @@ bakeryos-cli
 bakeryos-libalpm-hooks
 bakeryos-keyring
 bakeryos-release
+bakeryos-shell-config
+bakeryos-oh-my-zsh
