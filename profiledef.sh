@@ -28,6 +28,5 @@ file_permissions=(
   ["/usr/bin/bakeryos-installer"]="0:0:755"
   ["/etc/nftables.conf"]="0:0:644"
 
-  ["/usr/share/fastfetch/logo.txt"]="0:0:644"
   ["/etc/sudoers.d/bakeryos"]="0:0:440"
 )

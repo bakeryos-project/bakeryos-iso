@@ -187,7 +187,6 @@ gvfs
 gvfs-mtp
 
 nftables
-fastfetch
 flatpak
 curl
 zip
@@ -223,3 +222,4 @@ bakeryos-keyring
 bakeryos-release
 bakeryos-shell-config
 bakeryos-oh-my-zsh
+bakeryos-fastfetch
