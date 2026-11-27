@@ -1,1 +1,1 @@
-chsh -s $(which zsh)
+chsh -s "$(command -v zsh)"
